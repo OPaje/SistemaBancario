@@ -8,11 +8,17 @@ namespace SistemaBancario
 {
     class Conta
     {
-        public int Agencia { get; set; }
-        public int NumeroConta { get; set; }
-        public String NomeConta { get; set;}
-        public Titular Titular { get; set; }
-        public Decimal Saldo { get; set; }
+        private int agencia;
+        private int numeroConta;
+        private String nomeConta;
+        private Titular titular;
+        private Decimal saldo;
+
+        public int Agencia { get => agencia; set => agencia = value; }
+        public int NumeroConta { get => numeroConta; set => numeroConta = value; }
+        public String NomeConta { get => nomeConta; set => nomeConta = value; }
+        public Titular Titular { get => titular ; set => titular = value; }
+        public Decimal Saldo { get => saldo; set => saldo = value; }
 
         public Decimal verSaldo()
         {
@@ -34,6 +40,7 @@ namespace SistemaBancario
             }
             
         }
+       
     }
 
 }

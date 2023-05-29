@@ -8,9 +8,19 @@ namespace SistemaBancario
 {
     class Titular
     {
-        public String Nome { get; set; }
-        public String Cpf { get; set; }
-        public String Rg { get; set; }
-        public String Endereco { get; set; }
+        private String nome;
+        private String cpf;
+        private String rg;
+        private String endereco;
+
+        public String Nome { get => nome; set => nome = value; }
+        public String Cpf { get => cpf; set => cpf = value; }
+        public String Rg { get => rg; set => rg = value; }
+        public String Endereco { get => endereco; set => endereco = value; }
+
+        public override string ToString()
+        {
+            return  "\n\tNome: " + Nome.ToString() + "\n\tCPF: " + Cpf.ToString();
+        }
     }
 }

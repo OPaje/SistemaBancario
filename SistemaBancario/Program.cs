@@ -14,7 +14,7 @@ namespace SistemaBancario
             conta.NomeConta = "Conta Conta";
             conta.NumeroConta = 1010;
             conta.Saldo = 1000;
-            conta.Agencia = 001;
+            conta.Agencia = 14;
 
             conta.Titular = new Titular()
             {
@@ -24,6 +24,8 @@ namespace SistemaBancario
                 Endereco = "Brasil"
 
             };
+
+            Console.WriteLine($"Titular: {conta.Titular}");
 
             Console.WriteLine($"Saldo atual: {conta.verSaldo()}");
 
