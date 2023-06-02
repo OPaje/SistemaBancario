@@ -11,19 +11,34 @@ namespace SistemaBancario
         static void Main(string[] args)
         {
             var conta = new Conta();
-            conta.NomeConta = "Conta Conta";
-            conta.NumeroConta = 1010;
-            conta.Saldo = 1000;
-            conta.Agencia = 14;
+            var titular = new Titular();
 
-            conta.Titular = new Titular()
-            {
-                Nome = "Jean",
-                Cpf = "1232434",
-                Rg = "MG-098322",
-                Endereco = "Brasil"
+            Console.WriteLine("Informe o nome do titular: ");
+            titular.Nome = Console.ReadLine();
 
-            };
+            Console.WriteLine("Informe o CPF do titular: ");
+            titular.Cpf = Console.ReadLine();
+
+            Console.WriteLine("Informe o RG do titular: ");
+            titular.Rg = Console.ReadLine();
+
+            Console.WriteLine("Informe o endereço do titular: ");
+            titular.Endereco = Console.ReadLine();
+
+            conta.Titular = titular;
+
+            Console.WriteLine("Informe o nome da conta: ");
+            conta.NomeConta = Console.ReadLine();
+
+            Console.WriteLine("Informe o número da conta: ");
+            conta.NumeroConta = int.Parse(Console.ReadLine());
+
+            conta.Saldo = 500; // ganha R$500 quanto abre a conta
+
+            Console.WriteLine("Informe a agência: ");
+            conta.Agencia = int.Parse(Console.ReadLine());
+
+            
 
             Console.WriteLine($"Titular: {conta.Titular}");
 
