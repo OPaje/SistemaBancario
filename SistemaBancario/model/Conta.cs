@@ -40,7 +40,22 @@ namespace SistemaBancario
             }
             
         }
-       
+
+        public override bool Equals(object obj)
+        {
+            return obj is Conta conta &&
+                   Id.Equals(conta.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return 2108858624 + Id.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"Agência: {Agencia} Número Conta: {NumeroConta} Titular: {Titular}";
+        }
     }
 
 }

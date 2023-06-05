@@ -18,9 +18,22 @@ namespace SistemaBancario
         public String Rg { get => rg; set => rg = value; }
         public String Endereco { get => endereco; set => endereco = value; }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Titular titular &&
+                   Id.Equals(titular.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return 2108858624 + Id.GetHashCode();
+        }
+
         public override string ToString()
         {
             return  "\n\tNome: " + Nome.ToString() + "\n\tCPF: " + Cpf.ToString();
         }
+
+        
     }
 }

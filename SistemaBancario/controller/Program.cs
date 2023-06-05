@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaBancario.model;
+using SistemaBancario.view;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,18 @@ namespace SistemaBancario
 {
     class Program
     {
+        ContaDAO contaDAO = new ContaDAO();
+        GUI gui = new GUI();
+        public Program()
+        {
+            int opcao = gui.Menu();
+            Console.WriteLine($"Opção: {opcao}");
+        }
+
         static void Main(string[] args)
         {
-            var conta = new Conta();
+            new Program();
+            /*var conta = new Conta();
             var titular = new Titular();
 
             Console.WriteLine("Informe o nome do titular: ");
@@ -52,7 +63,7 @@ namespace SistemaBancario
 
             Console.WriteLine($"Saldo depois do saque: {conta.verSaldo()}");
 
-            conta.sacar(1550);
+            conta.sacar(1550);*/
 
             Console.ReadKey();
         }
