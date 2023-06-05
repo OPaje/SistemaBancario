@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario
 {
-    class Titular
+    class Titular : BaseEntity
     {
         private String nome;
         private String cpf;

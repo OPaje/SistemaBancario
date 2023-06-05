@@ -38,7 +38,7 @@ namespace SistemaBancario
             Console.WriteLine("Informe a agência: ");
             conta.Agencia = int.Parse(Console.ReadLine());
 
-            
+            Console.WriteLine("Id conta: " + conta.Id);
 
             Console.WriteLine($"Titular: {conta.Titular}");
 

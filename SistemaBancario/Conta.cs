@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario
 {
-    class Conta
+    class Conta : BaseEntity
     {
         private int agencia;
         private int numeroConta;
