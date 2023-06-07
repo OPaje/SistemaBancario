@@ -14,40 +14,63 @@ namespace SistemaBancario
         GUI gui = new GUI();
         public Program()
         {
-            int opcao = gui.Menu();
-            Console.WriteLine($"Opção: {opcao}");
+            
+            int opcao = 0;
+            do
+            {
+                opcao = gui.Menu();
+                switch (opcao)
+                {
+                    case 1:
+                        Conta conta = gui.criarConta();
+                        contaDAO.AdicionaConta(conta);
+                        Console.WriteLine("Cadastrado com Sucesso. \nPressione qualquer tecla para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case 2:
+                        contaDAO.mostrarContas();
+                        //long id = gui.perguntarId();
+                        if (contaDAO.sacar(contaDAO.buscarConta(gui.perguntarId()), gui.perguntarValor()))
+                        {
+                            Console.WriteLine("Saque efetuado com Sucesso. \nPressione qualquer tecla para continuar...");
+                            Console.ReadKey();
+                            Console.Clear();
+
+                        }else
+                        {
+                            Console.WriteLine("Não foi possível efetuar o saque");
+                        }
+                        
+                        
+                        break;
+
+                    case 3:
+                        contaDAO.mostrarContas();
+                        contaDAO.depositar(contaDAO.buscarConta(gui.perguntarId()), gui.perguntarValor());
+                        Console.WriteLine("Deposito efetuado com Sucesso. \nPressione qualquer tecla para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case 4:
+                        contaDAO.mostrarContas();
+                        Decimal saldo = contaDAO.verSaldo(contaDAO.buscarConta(gui.perguntarId()));
+                        Console.WriteLine($"Saldo da conta: {saldo}");
+                        Console.WriteLine("Pressione qualquer tecla para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                }
+
+            } while (opcao > 0 && opcao < 6);
         }
 
         static void Main(string[] args)
         {
             new Program();
-            /*var conta = new Conta();
-            var titular = new Titular();
-
-            Console.WriteLine("Informe o nome do titular: ");
-            titular.Nome = Console.ReadLine();
-
-            Console.WriteLine("Informe o CPF do titular: ");
-            titular.Cpf = Console.ReadLine();
-
-            Console.WriteLine("Informe o RG do titular: ");
-            titular.Rg = Console.ReadLine();
-
-            Console.WriteLine("Informe o endereço do titular: ");
-            titular.Endereco = Console.ReadLine();
-
-            conta.Titular = titular;
-
-            Console.WriteLine("Informe o nome da conta: ");
-            conta.NomeConta = Console.ReadLine();
-
-            Console.WriteLine("Informe o número da conta: ");
-            conta.NumeroConta = int.Parse(Console.ReadLine());
-
-            conta.Saldo = 500; // ganha R$500 quanto abre a conta
-
-            Console.WriteLine("Informe a agência: ");
-            conta.Agencia = int.Parse(Console.ReadLine());
+            /*
 
             Console.WriteLine("Id conta: " + conta.Id);
 

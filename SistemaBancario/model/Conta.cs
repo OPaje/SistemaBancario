@@ -20,27 +20,6 @@ namespace SistemaBancario
         public Titular Titular { get => titular ; set => titular = value; }
         public Decimal Saldo { get => saldo; set => saldo = value; }
 
-        public Decimal verSaldo()
-        {
-            return Saldo;
-        }
-
-        public void depositar(decimal valor)
-        {
-            Saldo += valor;
-        }
-
-        public void sacar(decimal valor)
-        {
-            if(valor < Saldo){
-                Saldo -= valor;
-            }
-            else{
-                Console.WriteLine("Não foi possível fazer o saque. Saldo insuficiente");
-            }
-            
-        }
-
         public override bool Equals(object obj)
         {
             return obj is Conta conta &&
@@ -54,7 +33,7 @@ namespace SistemaBancario
 
         public override string ToString()
         {
-            return $"Agência: {Agencia} Número Conta: {NumeroConta} Titular: {Titular}";
+            return $"ID : {Id} Agência: {Agencia} Número Conta: {NumeroConta} \nTitular: {Titular}";
         }
     }
 

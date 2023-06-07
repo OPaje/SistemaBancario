@@ -8,9 +8,9 @@ namespace SistemaBancario
 {
     public abstract class BaseEntity{
 
-        private Guid id = new Guid();
+        private long id;
 
-        public Guid Id { get => id;}
+        public long Id { get => id; set => id = value; }
 
     }
 }
