@@ -31,7 +31,7 @@ namespace SistemaBancario
 
                     case 2:
                         contaDAO.mostrarContas();
-                        //long id = gui.perguntarId();
+
                         if (contaDAO.sacar(contaDAO.buscarConta(gui.perguntarId()), gui.perguntarValor()))
                         {
                             Console.WriteLine("Saque efetuado com Sucesso. \nPressione qualquer tecla para continuar...");
@@ -41,6 +41,9 @@ namespace SistemaBancario
                         }else
                         {
                             Console.WriteLine("Não foi possível efetuar o saque");
+                            Console.WriteLine("Pressione qualquer tecla para continuar...");
+                            Console.ReadKey();
+                            Console.Clear();
                         }
                         
                         
@@ -62,6 +65,24 @@ namespace SistemaBancario
                         Console.ReadKey();
                         Console.Clear();
                         break;
+
+                    case 5:
+                        contaDAO.mostrarContas();
+                        if (contaDAO.transferir(contaDAO.buscarConta(gui.perguntarId()), contaDAO.buscarConta(gui.perguntarId()), gui.perguntarValor()))
+                        {
+                            Console.WriteLine("Transferência efetuada com Sucesso. \nPressione qualquer tecla para continuar...");
+                            Console.ReadKey();
+                            Console.Clear();
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Não foi possível efetuar a tranferência");
+                            Console.WriteLine("Pressione qualquer tecla para continuar...");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        break;
                 }
 
             } while (opcao > 0 && opcao < 6);
@@ -70,24 +91,7 @@ namespace SistemaBancario
         static void Main(string[] args)
         {
             new Program();
-            /*
-
-            Console.WriteLine("Id conta: " + conta.Id);
-
-            Console.WriteLine($"Titular: {conta.Titular}");
-
-            Console.WriteLine($"Saldo atual: {conta.verSaldo()}");
-
-            conta.depositar(500);
-
-            Console.WriteLine($"Saldo depois do deposito: {conta.verSaldo()}");
-
-            conta.sacar(500);
-
-            Console.WriteLine($"Saldo depois do saque: {conta.verSaldo()}");
-
-            conta.sacar(1550);*/
-
+            
             Console.ReadKey();
         }
     }

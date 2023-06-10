@@ -15,7 +15,7 @@ namespace SistemaBancario.view
             builder.Append("\n2 - Sacar");
             builder.Append("\n3 - Depositar");
             builder.Append("\n4 - Ver Saldo");
-            builder.Append("\n5 - Trasnferir");
+            builder.Append("\n5 - Transferir");
             builder.Append("\n6 - Sair");
             builder.Append("\nInforme sua opção");
 
