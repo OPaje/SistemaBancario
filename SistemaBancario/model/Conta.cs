@@ -14,7 +14,7 @@ namespace SistemaBancario
         private Titular titular;
         private Decimal saldo;
 
-        public int Agencia { get => agencia; set => agencia = value; }
+        public int Agencia { get => agencia; }
         public int NumeroConta { get => numeroConta; set => numeroConta = value; }
         public String NomeConta { get => nomeConta; set => nomeConta = value; }
         public Titular Titular { get => titular ; set => titular = value; }
